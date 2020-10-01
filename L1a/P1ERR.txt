@@ -1,5 +1,5 @@
 DEF Main():
 	integer integer125; // Lexical error identifier cannot be numbers
-	bool ISPRIME; // Lexical error can have only small chracters
+	boolean ISPRIME; // Lexical error can have only small chracters
 
 CLOSE
