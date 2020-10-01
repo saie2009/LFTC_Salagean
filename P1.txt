@@ -1,0 +1,20 @@
+DEF Main():
+	integer sum;
+	integer noofnumbers;
+	integer number;
+	integer current;
+	
+	current = 1;
+	
+	read(noofnumbers);
+	
+	for(curr <= noofnumbers ; curr add 1)
+	{
+		read(number);
+		sum = sum add number;
+	}
+	
+	display(sum);
+CLOSE
+
+

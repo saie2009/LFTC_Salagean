@@ -1,0 +1,5 @@
+DEF Main():
+	12345 as integer; // Lexical error identifier cannot be numbers
+	newnumber as boolean; //Lexical error boolean type identifier has to start with "is"|"has"|"are"|"have"
+
+CLOSE
