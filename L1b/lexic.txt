@@ -1,52 +1,27 @@
 Alphabet:
-
-a. Upper (A-Z) and lower case letters (a-z) of the English alphabet
-
-       b. Underline character '_';
-
-       c. Decimal digits (0-9);
+	a. Upper (A-Z) and lower case letters (a-z) of the English alphabet
+	b. Decimal digits (0-9);
 
 Lexic:
+	a.Special symbols, representing:
+		-> operators: 
+			arithmetic: + - * / % 
+			boolean: < > <= => == !=
+			assignment: =
+ 
+		-> separators: ( ) { } [ ] ; : 
+	
+		-> reserved words: DEF, Main, CLOSE, integer, boolean, array, read, display, if, else, for 
 
-      a.Special symbols, representing:
+	b.Identifiers - a sequence of only small letters of the alphabet, with the length of max 8 characters
+		
+		<identifier> ::= <smallletter> | <smallletter>{<smallletter>}
+		<smallletter> :== "a" | "b" | "c" | ... | "z"
 
-- operators + - * / := < <= = >=
-
-- separators [ ] { }  : ; space
-
-- reserved words:
-
-    array  char  const do else  if int  of program read 
-
-then var while write
-
-      b.identifiers
-
-  -a sequence of letters and  digits, such that the first character is a letter; the rule is:
-
-    identifier ::= letter | letter{letter}{digit}
-
-    letter ::= "A" | "B" | . ..| "Z"
-
-    digit ::= "0" | "1" |...| "9"
-
-
-      c.constants
-
-1.integer - rule:
-
-      noconst:="+"no|"-"no|no
-
-      no:=digit{no}
-
-2.character
-
-    character:='letter'|'digit'
-
-3.string
-
-      constchar:="string"
-
-      string:=char{string}
-
-      char:=letter|digit
+  	c.Constants
+		-> integer
+			<intconst> ::= "0" | [+|-]<nozerodigit>{<digit>}
+			<nozerodigit> ::= "1" | "2" | .. | "9"
+			<digit> ::= "0" | "1" | "2" | .. | "9"
+		-> boolean
+			<boolconst> ::= "true" | "false"

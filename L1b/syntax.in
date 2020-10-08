@@ -1,39 +1,24 @@
-program ::= "VAR" decllist ";" cmpdstmt "."
-
-decllist ::= declaration | declaration ";" decllist
-
-declaration ::= IDENTIFIER ":" type
-
-type1 ::= "BOOLEAN" | "CHAR" | "INTEGER" | "REAL"
-
-arraydecl ::= "ARRAY" "[" nr "]" "OF" type1
-
-type  ::= type1|arraydecl
-
-cmpdstmt ::= "BEGIN" stmtlist "END"
-
-stmtlist ::= stmt | stmt ";" stmtlist
-
-stmt ::= simplstmt | structstmt
-
-simplstmt ::= assignstmt | iostmt
-
-assignstmt ::= IDENTIFIER ":=" expression
-
-expression ::= expression "+" term | term
-
-term ::= term "*" factor | factor
-
-factor ::= "(" expression ")" | IDENTIFIER
-
-iostmt ::= "READ" | "WRITE" "(" IDENTIFIER ")"
-
-structstmt ::= cmpdstmt | ifstmt | whilestmt
-
-ifstmt ::= "IF" condition "THEN" stmt ["ELSE" stmt]
-
-whilestmt ::= "WHILE" condition "DO" stmt
-
-condition ::= expression RELATION expression
-
-RELATION ::= "<" | "<=" | "=" | "<>" | ">=" | ">"
+<program> ::= "DEF" "Main" "(" ")" <stmt_list> "CLOSE"
+<stmt_list> ::= <stmt> | <stmt> <stmt_list>
+<stmt> ::= <declaration> | <read> | <display> | <assignnonbool> | <assignbool> | <if_stmt> | <for_stmt>
+<declaration> ::= <type> <identifier> ";"
+<type> ::= <simple_type> | <array_type>
+<simple_type> ::= "integer" | "boolean"
+<array_type> ::= "array" "[" <nonzerodigit> "]" <simple_type>
+<nonzerodigit> ::= "1" | "2" | .. | "9"
+<identifier> ::= <smallletter> | <smallletter>{<smallletter>}
+<smallletter> ::= "a" | "b" | .. | "z"
+<read> ::= "read" "(" <identifier> ")" ";"
+<display> ::= "display" "(" [<identifier>|<constant>] ")" ";"
+<constant> ::= <intconst> | <boolconst>
+<intconst> ::= "0" | [+|-]<nozerodigit>{<digit>}
+<digit> ::= "0" | "1" | "2" | .. | "9"
+<boolconst> ::= "true" | "false"
+<assignnonbool> ::= <identifier> "=" <expression> ";"
+<assignbool> ::== <identifier> "=" <boolconst> ";"
+<expression> ::= <identifier> | <intconst> | <expression> <math_operator> <expression>
+<math_operator> ::= "+" | "-" | "*" | "/" | "%"
+<if_stmt> ::= "if" "(" <condition> ") <stmt> | "if" "(" <condition> ")" <stmt> "else" <stmt>
+<condition> ::= <expression> <bool_operator> <expression> | <boolconst>
+<bool_operator> ::= "<" | ">" | "<=" | "=>" | "==" | "!="
+<for_stmt> ::= "for" "(" <identifier> <bool_operator" [<identifier> | <intconst>] ";" <assignnonbool> ")" "{" <stmt_list> "}"

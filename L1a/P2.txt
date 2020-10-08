@@ -6,7 +6,7 @@ DEF Main():
 	read(number);
 	current = 2; 
 	
-	for(curr < number ; curr add 1)
+	for(curr < number ; curr = curr + 1)
 	{
 		if( number % curr == 0 )
 			isprime = false;

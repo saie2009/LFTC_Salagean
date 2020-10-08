@@ -8,10 +8,10 @@ DEF Main():
 	
 	read(noofnumbers);
 	
-	for(curr <= noofnumbers ; curr add 1)
+	for(curr <= noofnumbers ; curr = curr + 1)
 	{
 		read(number);
-		sum = sum add number;
+		sum = sum + number;
 	}
 	
 	display(sum);
