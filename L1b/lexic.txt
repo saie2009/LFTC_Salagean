@@ -15,12 +15,12 @@ Lexic:
 
 	b.Identifiers - a sequence of only small letters of the alphabet, with the length of max 8 characters
 		
-		<identifier> ::= <smallletter> | <smallletter>{<smallletter>}
+		<identifier> ::= <smallletter> | <smallletter><identifier>
 		<smallletter> :== "a" | "b" | "c" | ... | "z"
 
   	c.Constants
 		-> integer
-			<intconst> ::= "0" | [+|-]<nozerodigit>{<digit>}
+			<intconst> ::= "0" | [+|-]<nozerodigit><digit>
 			<nozerodigit> ::= "1" | "2" | .. | "9"
 			<digit> ::= "0" | "1" | "2" | .. | "9"
 		-> boolean

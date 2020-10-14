@@ -6,7 +6,7 @@
 <simple_type> ::= "integer" | "boolean"
 <array_type> ::= "array" "[" <nonzerodigit> "]" <simple_type>
 <nonzerodigit> ::= "1" | "2" | .. | "9"
-<identifier> ::= <smallletter> | <smallletter>{<smallletter>}
+<identifier> ::= <smallletter> | <smallletter><smallletter>
 <smallletter> ::= "a" | "b" | .. | "z"
 <read> ::= "read" "(" <identifier> ")" ";"
 <display> ::= "display" "(" [<identifier>|<constant>] ")" ";"
@@ -16,7 +16,7 @@
 <boolconst> ::= "true" | "false"
 <assignnonbool> ::= <identifier> "=" <expression> ";"
 <assignbool> ::== <identifier> "=" <boolconst> ";"
-<expression> ::= <identifier> | <intconst> | <expression> <math_operator> <expression>
+<expression> ::= <identifier> | <intconst> | <expression> <math_operator> <expression> | "(" <expression> <math_operator> <expression> ")"
 <math_operator> ::= "+" | "-" | "*" | "/" | "%"
 <if_stmt> ::= "if" "(" <condition> ") <stmt> | "if" "(" <condition> ")" <stmt> "else" <stmt>
 <condition> ::= <expression> <bool_operator> <expression> | <boolconst>
