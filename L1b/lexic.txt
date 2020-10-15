@@ -16,7 +16,7 @@ Lexic:
 	b.Identifiers - a sequence of only small letters of the alphabet, with the length of max 8 characters
 		
 		<identifier> ::= <smallletter> | <smallletter><identifier>
-		<smallletter> :== "a" | "b" | "c" | ... | "z"
+		<smallletter> ::= "a" | "b" | "c" | ... | "z"
 
   	c.Constants
 		-> integer
