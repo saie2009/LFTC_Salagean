@@ -1,0 +1,13 @@
+C:\Users\andrei.salagean\Desktop\LFTC2020\L2\Scanner\Scanner\bin\Debug\netcoreapp3.1\Scanner.exe
+C:\Users\andrei.salagean\Desktop\LFTC2020\L2\Scanner\Scanner\bin\Debug\netcoreapp3.1\Scanner.deps.json
+C:\Users\andrei.salagean\Desktop\LFTC2020\L2\Scanner\Scanner\bin\Debug\netcoreapp3.1\Scanner.runtimeconfig.json
+C:\Users\andrei.salagean\Desktop\LFTC2020\L2\Scanner\Scanner\bin\Debug\netcoreapp3.1\Scanner.runtimeconfig.dev.json
+C:\Users\andrei.salagean\Desktop\LFTC2020\L2\Scanner\Scanner\bin\Debug\netcoreapp3.1\Scanner.dll
+C:\Users\andrei.salagean\Desktop\LFTC2020\L2\Scanner\Scanner\bin\Debug\netcoreapp3.1\Scanner.pdb
+C:\Users\andrei.salagean\Desktop\LFTC2020\L2\Scanner\Scanner\obj\Debug\netcoreapp3.1\Scanner.csprojAssemblyReference.cache
+C:\Users\andrei.salagean\Desktop\LFTC2020\L2\Scanner\Scanner\obj\Debug\netcoreapp3.1\Scanner.AssemblyInfoInputs.cache
+C:\Users\andrei.salagean\Desktop\LFTC2020\L2\Scanner\Scanner\obj\Debug\netcoreapp3.1\Scanner.AssemblyInfo.cs
+C:\Users\andrei.salagean\Desktop\LFTC2020\L2\Scanner\Scanner\obj\Debug\netcoreapp3.1\Scanner.csproj.CoreCompileInputs.cache
+C:\Users\andrei.salagean\Desktop\LFTC2020\L2\Scanner\Scanner\obj\Debug\netcoreapp3.1\Scanner.dll
+C:\Users\andrei.salagean\Desktop\LFTC2020\L2\Scanner\Scanner\obj\Debug\netcoreapp3.1\Scanner.pdb
+C:\Users\andrei.salagean\Desktop\LFTC2020\L2\Scanner\Scanner\obj\Debug\netcoreapp3.1\Scanner.genruntimeconfig.cache
