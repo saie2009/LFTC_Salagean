@@ -1,0 +1,16 @@
+DEF Main():
+	integer number;
+	boolean isprime;
+	integer current;
+	
+	read(number);
+	current = 2; 
+	
+	for(curr < number ; curr = curr + 1)
+	{
+		if( number % curr == 0 )
+			isprime = false;
+	}		
+			
+	display(isprime);
+CLOSE

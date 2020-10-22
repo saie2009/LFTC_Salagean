@@ -1,24 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\andrei.salagean\\Desktop\\LFTC2020\\L2\\Scanner\\Scanner\\Scanner.csproj": {}
+    "C:\\Users\\andre\\Desktop\\Facultate\\LFTC\\LAB\\L2\\Scanner\\Scanner\\Scanner.csproj": {}
   },
   "projects": {
-    "C:\\Users\\andrei.salagean\\Desktop\\LFTC2020\\L2\\Scanner\\Scanner\\Scanner.csproj": {
+    "C:\\Users\\andre\\Desktop\\Facultate\\LFTC\\LAB\\L2\\Scanner\\Scanner\\Scanner.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\andrei.salagean\\Desktop\\LFTC2020\\L2\\Scanner\\Scanner\\Scanner.csproj",
+        "projectUniqueName": "C:\\Users\\andre\\Desktop\\Facultate\\LFTC\\LAB\\L2\\Scanner\\Scanner\\Scanner.csproj",
         "projectName": "Scanner",
-        "projectPath": "C:\\Users\\andrei.salagean\\Desktop\\LFTC2020\\L2\\Scanner\\Scanner\\Scanner.csproj",
-        "packagesPath": "C:\\Users\\andrei.salagean\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\andrei.salagean\\Desktop\\LFTC2020\\L2\\Scanner\\Scanner\\obj\\",
+        "projectPath": "C:\\Users\\andre\\Desktop\\Facultate\\LFTC\\LAB\\L2\\Scanner\\Scanner\\Scanner.csproj",
+        "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\andre\\Desktop\\Facultate\\LFTC\\LAB\\L2\\Scanner\\Scanner\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\andrei.salagean\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -57,7 +56,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

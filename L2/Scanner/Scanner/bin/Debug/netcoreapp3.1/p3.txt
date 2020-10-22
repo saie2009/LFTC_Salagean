@@ -1,0 +1,20 @@
+DEF Main():
+	integer numberone;
+	integer numbertwo;
+	integer numberthree;
+	integer numbermax;
+	
+	read(numberone);
+	read(numbertwo);
+	read(numberthree);
+	
+	if( numberone > numbertwo )
+		numbermax = numberone;
+	else
+		numbermax = numbertwo;
+		
+	if ( numbermax < numberthree )
+		numbermax = numberthree;	
+			
+	display(numbermax);
+CLOSE

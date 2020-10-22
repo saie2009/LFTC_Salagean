@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Scanner
 {
-	public class AlphaTable2
+	public class AlphaSTbl
 	{
 		private List<string> _symbolTable;
 
-		public AlphaTable2()
+		public AlphaSTbl()
 		{
 			_symbolTable = new List<string>();
 		}
@@ -39,27 +37,11 @@ namespace Scanner
 			{
 				if (stv.Equals(key))
 				{
-					return _symbolTable.IndexOf(stv);
+					return _symbolTable.IndexOf(stv)+1; //Because we want the code 0 for Tokens
 				}
 			}
 
 			return -1;
-		}
-
-		/// <summary>
-		/// In case we make a change to the alphabetical order we update the position that the value had previously to the new position
-		/// </summary>
-		/// <param name="value">The identifier or constant</param>
-		/// <param name="newPosition">The new position</param>
-		public void UpdatePosition(string value, int newPosition)
-		{
-			//foreach (var symbol in _symbolTable)
-			//{
-			//	if (symbol.Value == value)
-			//	{
-			//		symbol.Position = newPosition;
-			//	}
-			//}
 		}
 	}
 }
