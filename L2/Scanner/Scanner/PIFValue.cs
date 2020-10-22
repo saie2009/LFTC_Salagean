@@ -2,7 +2,7 @@
 {
 	public class PIFValue
 	{
-		public int Code { get; set; }
+		public int Position { get; set; }
 
 		public string Value { get; set; }
 	}

@@ -43,5 +43,14 @@ namespace Scanner
 
 			return -1;
 		}
+
+		/// <summary>
+		/// Returns the internal symbol table for parsing
+		/// </summary>
+		/// <returns></returns>
+		public List<string> GetSymbolTable()
+		{
+			return _symbolTable;
+		}
 	}
 }

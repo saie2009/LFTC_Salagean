@@ -14,9 +14,9 @@ namespace Scanner
 		}
 
 
-		public void AddSymbol(string token, int code)
+		public void AddSymbol(string token, int position)
 		{
-			_pifTable.Add(new PIFValue { Value = token, Code = code });
+			_pifTable.Add(new PIFValue { Value = token, Position = position });
 		}
 
 		///// <summary>
@@ -41,15 +41,15 @@ namespace Scanner
 		/// In case we make a change to the alphabetical order we update the code that the value had previously to the new code
 		/// </summary>
 		/// <param name="value">The identifier or constant</param>
-		/// <param name="newCode">The new code</param>
-		public void UpdateCode(string value, int newCode)
+		/// <param name="newPosition">The new position</param>
+		public void UpdateCode(string value, int newPosition)
 		{
 			//TO CHECK
 			foreach (var symbol in _pifTable)
 			{
 				if (symbol.Value == value)
 				{
-					symbol.Code = newCode;
+					symbol.Position = newPosition;
 				}
 			}
 		}
