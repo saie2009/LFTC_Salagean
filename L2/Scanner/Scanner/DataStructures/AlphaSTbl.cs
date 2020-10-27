@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Scanner
+namespace Scanner.DataStructures
 {
 	public class AlphaSTbl
 	{
