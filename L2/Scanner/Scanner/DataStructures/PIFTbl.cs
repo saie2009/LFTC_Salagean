@@ -33,5 +33,14 @@ namespace Scanner.DataStructures
 				}
 			}
 		}
+
+		/// <summary>
+		/// Return the internal table for parsing
+		/// </summary>
+		/// <returns></returns>
+		public List<TokenPositionHolder> GetTable()
+		{
+			return _pifTable;
+		}
 	}
 }

@@ -1,7 +1,6 @@
 ﻿using Scanner.DataStructures;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices.ComTypes;
 using System.Text.RegularExpressions;
 
 namespace Scanner.Services
@@ -23,9 +22,7 @@ namespace Scanner.Services
 
 			var smallLettersDigitsRegex = new Regex("^[-+a-z0-9]*$");
 			var smallLettersRegex = new Regex("^[a-z]*$");
-			var numberRegex = new Regex("^-?[0-9]+$");
-			var boolOperatorRegex = new Regex("^[< > ! =]"); // NOTUSED
-			
+			var numberRegex = new Regex("^-?[0-9]+$");			
 
 			var fileContent = System.IO.File.ReadAllLines(fileName);
 			for (var fileLine = 0; fileLine < fileContent.Length; fileLine++)
@@ -36,10 +33,11 @@ namespace Scanner.Services
 					var lineContent = fileContent[fileLine].Split(CommonConstants.WhiteSpace);
 					foreach (var word in lineContent)
 					{
-						if (!string.IsNullOrWhiteSpace(word)) // word is not empty space
+						var wordTrimmed = word.Trim();
+						if (!string.IsNullOrWhiteSpace(wordTrimmed)) // word is not empty space
 						{
 							//Attempt to split again by possible symbols
-							var simpleWords = AttemptSplit(word);
+							var simpleWords = AttemptSplit(wordTrimmed);
 							foreach (var sw in simpleWords.Where(s => !string.IsNullOrWhiteSpace(s)))
 							{
 								if (_tokens.Contains(sw))
@@ -139,8 +137,64 @@ namespace Scanner.Services
 		/// <returns></returns>
 		private List<string> AttemptSplit(string word)
 		{
+			var specialChars = new List<char> { '[', ']', ':', ';', '{', '}', '(', ')', '=', '!', '>', '<', '+', '-', '/', '%' };
 			var listOfWords = new List<string>();
 
+			//search for the appearence of a special character
+			var startPos = 0;
+			var nextPos = 1;
+			var currentWord = string.Empty;
+			while (startPos < word.Length-1)
+			{
+				if (!specialChars.Contains(word[startPos]))
+				{
+					currentWord += word[startPos];
+				}
+				else
+				{
+					if (!string.IsNullOrEmpty(currentWord))
+					{
+						listOfWords.Add(currentWord);
+						currentWord = string.Empty;
+					}
+
+					if (word[startPos] == '!' || word[startPos] == '>' || word[startPos] == '<' || word[startPos] == '=')
+					{
+						if (word[nextPos] == '=')
+						{
+							listOfWords.Add(string.Empty + word[startPos] + word[nextPos]);
+							nextPos += 1;
+						}
+						else
+						{
+							listOfWords.Add(string.Empty + word[startPos]);
+						}
+					}
+					else
+					{
+						listOfWords.Add(string.Empty + word[startPos]);
+					}
+
+				}
+				startPos = nextPos;
+				nextPos++;
+
+				if(nextPos == word.Length)
+				{
+					if (specialChars.Contains(word[nextPos-1]))
+					{
+						listOfWords.Add(string.Empty + word[nextPos-1]);
+					}
+					else
+					{
+						currentWord += word[nextPos-1];
+						listOfWords.Add(currentWord);
+						currentWord = string.Empty;
+					}
+					
+				}
+			}
+			
 			return listOfWords; 
 		}
 

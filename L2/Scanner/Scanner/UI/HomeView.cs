@@ -78,6 +78,16 @@ namespace Scanner.UI
 		/// <param name="scanResult">The result of the scan</param>
 		private void GenerateOutput(ScanOutput scanResult)
 		{
+			//var pif = scanResult.PIFTable.GetTable();
+			var pif = scanResult.SymbolTable.GetSymbolTable();
+			//foreach (var pifValue in pif)
+			//{
+			//	Console.WriteLine("Token " + pifValue.Token + " Code " + pifValue.Position);
+			//}
+			foreach (var pifValue in pif)
+			{
+				Console.WriteLine("Token " + pifValue);
+			}
 			//Console.WriteLine("Check the output files manually in bin\'debug :D");
 		}
 	}
