@@ -183,6 +183,11 @@ namespace Scanner.Services
 				{
 					if (specialChars.Contains(word[nextPos-1]))
 					{
+						if (!string.IsNullOrEmpty(currentWord))
+						{
+							listOfWords.Add(currentWord);
+							currentWord = string.Empty;
+						}
 						listOfWords.Add(string.Empty + word[nextPos-1]);
 					}
 					else

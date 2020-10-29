@@ -1,6 +1,8 @@
 ﻿using Scanner.DataStructures;
 using Scanner.Services;
 using System;
+using System.IO;
+using System.IO.Enumeration;
 
 namespace Scanner.UI
 {
@@ -24,22 +26,22 @@ namespace Scanner.UI
 				{
 					case "1":
 						{
-							GenerateOutput(_scanService.Scan(CommonConstants.P1));
+							GenerateOutput(_scanService.Scan(CommonConstants.P1), CommonConstants.P1Pif, CommonConstants.P1St);
 						}
 						break;
 					case "2":
 						{
-							GenerateOutput(_scanService.Scan(CommonConstants.P2));
+							GenerateOutput(_scanService.Scan(CommonConstants.P2), CommonConstants.P2Pif, CommonConstants.P2St);
 						}
 						break;
 					case "3":
 						{
-							GenerateOutput(_scanService.Scan(CommonConstants.P3));
+							GenerateOutput(_scanService.Scan(CommonConstants.P3), CommonConstants.P3Pif, CommonConstants.P3St);
 						}
 						break;
 					case "4":
 						{
-							GenerateOutput(_scanService.Scan(CommonConstants.PERR));
+							GenerateOutput(_scanService.Scan(CommonConstants.PERR), CommonConstants.PERRPif, CommonConstants.PERRSt);
 						}
 						break;
 					case "5":
@@ -76,24 +78,42 @@ namespace Scanner.UI
 		/// Generated in the console the resulted PIF , ST and if any, the Lexical errors, also writes the PIF and the ST to a txt file
 		/// </summary>
 		/// <param name="scanResult">The result of the scan</param>
-		private void GenerateOutput(ScanOutput scanResult)
+		private void GenerateOutput(ScanOutput scanResult, string pifFileNameOutput, string stFileNameOutput)
 		{
-			//var pif = scanResult.PIFTable.GetTable();
-			var pif = scanResult.SymbolTable.GetSymbolTable();
-			//foreach (var pifValue in pif)
-			//{
-			//	Console.WriteLine("Token " + pifValue.Token + " Code " + pifValue.Position);
-			//}
-			foreach (var pifValue in pif)
+			var pif = scanResult.PIFTable.GetTable();
+			var st = scanResult.SymbolTable.GetSymbolTable();
+			var errors = scanResult.LexicalErrors;
+
+			Console.WriteLine("Scanned output:");
+
+			using (var file = new StreamWriter(pifFileNameOutput, false))
 			{
-				Console.WriteLine("Token " + pifValue);
+				foreach (var pifValue in pif)
+				{
+					file.WriteLine("Token: " + pifValue.Token + " Code: " + pifValue.Position);
+					Console.WriteLine("Token: " + pifValue.Token + " Code: " + pifValue.Position);
+				}
+			}
+			
+			using (var file = new StreamWriter(stFileNameOutput, false))
+			{
+				for (var pos = 0; pos < st.Count; pos++)
+				{
+					file.WriteLine("Token: " + st[pos] + " Position: " + (pos + 1));
+					Console.WriteLine("Token: " + st[pos] + " Position: " + (pos + 1));
+				}
 			}
 
 			foreach (var error in scanResult.LexicalErrors)
 			{
-				Console.WriteLine("Error " + error.Token + " Code " + error.Position);
+				Console.WriteLine("Error: " + error.Token + " Line: " + error.Position);
 			}
-			//Console.WriteLine("Check the output files manually in bin\'debug :D");
+
+			if (errors.Count == 0)
+			{
+				Console.WriteLine("Lexically correct");
+			}
+			Console.WriteLine("Check the output files manually in bin\'debug :D");
 		}
 	}
 }
