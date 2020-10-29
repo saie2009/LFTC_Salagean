@@ -85,7 +85,7 @@ namespace Scanner.UI
 			var errors = scanResult.LexicalErrors;
 
 			Console.WriteLine("Scanned output:");
-
+			Console.WriteLine("PIF:");
 			using (var file = new StreamWriter(pifFileNameOutput, false))
 			{
 				foreach (var pifValue in pif)
@@ -94,7 +94,7 @@ namespace Scanner.UI
 					Console.WriteLine("Token: " + pifValue.Token + " Code: " + pifValue.Position);
 				}
 			}
-			
+			Console.WriteLine("ST:");
 			using (var file = new StreamWriter(stFileNameOutput, false))
 			{
 				for (var pos = 0; pos < st.Count; pos++)
