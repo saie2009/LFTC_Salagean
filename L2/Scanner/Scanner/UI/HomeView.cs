@@ -88,6 +88,11 @@ namespace Scanner.UI
 			{
 				Console.WriteLine("Token " + pifValue);
 			}
+
+			foreach (var error in scanResult.LexicalErrors)
+			{
+				Console.WriteLine("Error " + error.Token + " Code " + error.Position);
+			}
 			//Console.WriteLine("Check the output files manually in bin\'debug :D");
 		}
 	}
