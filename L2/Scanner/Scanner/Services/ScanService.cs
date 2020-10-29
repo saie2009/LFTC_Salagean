@@ -144,61 +144,68 @@ namespace Scanner.Services
 			var startPos = 0;
 			var nextPos = 1;
 			var currentWord = string.Empty;
-			while (startPos < word.Length-1)
+			if (word.Length == 1)
 			{
-				if (!specialChars.Contains(word[startPos]))
+				listOfWords.Add(word);
+			}
+			else
+			{
+				while (startPos < word.Length - 1)
 				{
-					currentWord += word[startPos];
-				}
-				else
-				{
-					if (!string.IsNullOrEmpty(currentWord))
+					if (!specialChars.Contains(word[startPos]))
 					{
-						listOfWords.Add(currentWord);
-						currentWord = string.Empty;
-					}
-
-					if (word[startPos] == '!' || word[startPos] == '>' || word[startPos] == '<' || word[startPos] == '=')
-					{
-						if (word[nextPos] == '=')
-						{
-							listOfWords.Add(string.Empty + word[startPos] + word[nextPos]);
-							nextPos += 1;
-						}
-						else
-						{
-							listOfWords.Add(string.Empty + word[startPos]);
-						}
+						currentWord += word[startPos];
 					}
 					else
-					{
-						listOfWords.Add(string.Empty + word[startPos]);
-					}
-
-				}
-				startPos = nextPos;
-				nextPos++;
-
-				if(nextPos == word.Length)
-				{
-					if (specialChars.Contains(word[nextPos-1]))
 					{
 						if (!string.IsNullOrEmpty(currentWord))
 						{
 							listOfWords.Add(currentWord);
 							currentWord = string.Empty;
 						}
-						listOfWords.Add(string.Empty + word[nextPos-1]);
+
+						if (word[startPos] == '!' || word[startPos] == '>' || word[startPos] == '<' || word[startPos] == '=')
+						{
+							if (word[nextPos] == '=')
+							{
+								listOfWords.Add(string.Empty + word[startPos] + word[nextPos]);
+								nextPos += 1;
+							}
+							else
+							{
+								listOfWords.Add(string.Empty + word[startPos]);
+							}
+						}
+						else
+						{
+							listOfWords.Add(string.Empty + word[startPos]);
+						}
+
 					}
-					else
+					startPos = nextPos;
+					nextPos++;
+
+					if (nextPos == word.Length)
 					{
-						currentWord += word[nextPos-1];
-						listOfWords.Add(currentWord);
-						currentWord = string.Empty;
+						if (specialChars.Contains(word[nextPos - 1]))
+						{
+							if (!string.IsNullOrEmpty(currentWord))
+							{
+								listOfWords.Add(currentWord);
+								currentWord = string.Empty;
+							}
+							listOfWords.Add(string.Empty + word[nextPos - 1]);
+						}
+						else
+						{
+							currentWord += word[nextPos - 1];
+							listOfWords.Add(currentWord);
+							currentWord = string.Empty;
+						}
+
 					}
-					
 				}
-			}
+			}			
 			
 			return listOfWords; 
 		}
