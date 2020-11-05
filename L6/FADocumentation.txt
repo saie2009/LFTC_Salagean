@@ -1,0 +1,20 @@
+https://github.com/saie2009/LFTC_Salagean
+Lab6
+
+Finite Automata
+S A B -> the set of states
+a b -> the alphabet
+S -> the initial state
+S B -> the final state
+The transitions:
+S a A 
+A a A
+A b A
+A a B
+A b B
+
+EBNF of FA:
+
+S -> aA | e
+A -> aA | bA | aB | bB
+B -> e
