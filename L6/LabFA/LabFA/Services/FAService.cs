@@ -1,6 +1,7 @@
 ﻿using LabFA.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace LabFA.Services
 {
@@ -43,6 +44,39 @@ namespace LabFA.Services
 		public List<Transition> GetTransitions()
 		{
 			return _automata.Transitions;
+		}
+
+		public bool VerifySequence(string sequence)
+		{
+			var state = _automata.InitialState;
+			for(var i = 0; i < sequence.Length; i++)
+			{
+				var transitions = _automata.Transitions?.Where(t => t.State == state && t.AlphabetSequence == sequence[i].ToString())?.ToList();
+				if (transitions == null || transitions.Count == 0)
+				{
+					return false;
+				}
+				if (transitions.Count == 1)
+				{
+					state = transitions.First().Result;
+				}
+				else
+				{
+					if (i == sequence.Length - 1)
+					{
+						foreach(var transition in transitions)
+						{
+							if (_automata.FinalStates.Contains(transition.Result))
+							{
+								state = transition.Result;
+								break;
+							}
+						}
+					}
+				}
+			}
+
+			return _automata.FinalStates.Contains(state);
 		}
 
 		/// <summary>

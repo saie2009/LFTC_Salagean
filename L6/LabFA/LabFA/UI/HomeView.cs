@@ -64,7 +64,17 @@ namespace LabFA.UI
 						break;
 					case "6":
 						{
-							Console.WriteLine("Feature coming soon...");
+							Console.WriteLine("Input the sequence to be verified...");
+							var sequence = Console.ReadLine();
+							var isAccepted = _faService.VerifySequence(sequence);
+							if (isAccepted)
+							{
+								Console.WriteLine("The sequence is accepted by the DFA.");
+							}
+							else
+							{
+								Console.WriteLine("The sequence is not accepted by the DFA.");
+							}
 						}
 						break;
 					case "7":
